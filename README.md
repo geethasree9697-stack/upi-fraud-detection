@@ -21,7 +21,14 @@ With the rapid increase in digital payments, fraud detection systems are essenti
   - Fraud  
   - Not Fraud  
 
----
+## 📊 Model Performance
+
+The model was trained using the XGBoost algorithm on the PaySim dataset.  
+It classifies transactions into:
+- Fraud
+- Not Fraud
+
+The model performs well in detecting fraudulent patterns in transaction data.
 
 ## 🛠️ Tech Stack
 - Python  
