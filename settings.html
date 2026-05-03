@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Settings</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="layout">
+
+   <div class="sidebar">
+
+<h2>💎 BankSecure</h2>
+
+<ul>
+<li><a href="/dashboard">🏠 Dashboard</a></li>
+<li><a href="/">🛡 Fraud Detection</a></li>
+<li><a href="/settings">⚙ Settings</a></li>
+<li><a href="/logout">🚪 Logout</a></li>
+</ul>
+
+</div>
+
+    <div class="main">
+    <h1>⚙ Settings</h1>
+
+    <div class="profile-card">
+        <h3>Admin Profile</h3>
+        <p><strong>Name:</strong> Geetha</p>
+        <p><strong>Email:</strong> admin@banksecure.com</p>
+        <p><strong>Role:</strong> System Administrator</p>
+    </div>
+
+    <div class="profile-card">
+        <h3>System Info</h3>
+        <p>Model: XGBoost Fraud Detection</p>
+        <p>Version: 1.0</p>
+        <p>Status: Active</p>
+    </div>
+</div>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>BankSecure Dashboard</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="layout">
+
+<!-- Sidebar -->
+<div class="sidebar">
+
+<h2>💎 BankSecure</h2>
+
+<ul>
+<li><a href="/dashboard">🏠 Dashboard</a></li>
+<li><a href="/">🛡 Fraud Detection</a></li>
+<li><a href="/settings">⚙ Settings</a></li>
+<li><a href="/logout">🚪 Logout</a></li>
+</ul>
+
+</div>
+
+
+<!-- Main Content -->
+<div class="main">
+
+<!-- Topbar -->
+<div class="topbar">
+
+<h2>Admin Dashboard</h2>
+
+<div class="profile">
+👤 Admin
+</div>
+
+</div>
+
+
+<!-- Welcome -->
+<div class="welcome">
+<h1>Welcome Admin 👋</h1>
+<p>Monitor transactions and detect fraud activity in real time.</p>
+</div>
+
+
+<!-- Statistics Cards -->
+<div class="cards">
+
+<div class="card blue">
+<h3>{{ total_transactions }}</h3>
+<p>Total Transactions</p>
+</div>
+
+<div class="card red">
+<h3>{{ total_fraud }}</h3>
+<p>Fraud Detected</p>
+</div>
+
+<div class="card green">
+<h3>{{ total_safe }}</h3>
+<p>Safe Transactions</p>
+</div>
+
+<div class="card purple">
+<h3>${{ "{:,.2f}".format(total_amount) }}</h3>
+<p>Total Transaction Amount</p>
+</div>
+
+</div>
+
+
+<!-- Info Section -->
+<div class="info-box">
+
+<h3>📊 System Overview</h3>
+
+<p>
+This fraud monitoring system analyzes financial transactions and detects suspicious
+activity using machine learning algorithms.
+</p>
+
+<p>
+Use the <b>Fraud Detection</b> module to check whether a transaction is legitimate
+or fraudulent.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>

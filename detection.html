@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>BankSecure - Fraud Detection</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="layout">
+
+<!-- Sidebar -->
+<div class="sidebar">
+
+<h2>💎 BankSecure</h2>
+
+<ul>
+<li><a href="/dashboard">🏠 Dashboard</a></li>
+<li><a href="/">🛡 Fraud Detection</a></li>
+<li><a href="/settings">⚙ Settings</a></li>
+<li><a href="/logout">🚪 Logout</a></li>
+</ul>
+
+</div>
+
+
+<!-- Main -->
+<div class="main">
+
+<div class="topbar">
+<h3>Fraud Monitoring System</h3>
+<div class="profile">👤 Admin</div>
+</div>
+
+
+<!-- Cards -->
+<div class="cards">
+
+<div class="card blue">
+<h4>Total Transactions</h4>
+<p>{{ total_transactions }}</p>
+</div>
+
+<div class="card red">
+<h4>Fraud Detected</h4>
+<p>{{ total_fraud }}</p>
+</div>
+
+<div class="card green">
+<h4>Safe Transactions</h4>
+<p>{{ total_safe }}</p>
+</div>
+
+</div>
+
+
+<!-- Detection Form -->
+<div class="form-container">
+
+<form method="POST">
+
+<div class="grid">
+
+<input type="number" name="step" placeholder="Step" value="{{ form_data.get('step','') }}" required>
+
+<select name="type">
+<option value="CASH_IN">CASH_IN</option>
+<option value="CASH_OUT">CASH_OUT</option>
+<option value="DEBIT">DEBIT</option>
+<option value="PAYMENT">PAYMENT</option>
+<option value="TRANSFER">TRANSFER</option>
+</select>
+
+<input type="number" name="amount" placeholder="Amount" value="{{ form_data.get('amount','') }}" required>
+
+<input type="number" name="oldbalanceOrg" placeholder="Old Balance Sender" required>
+
+<input type="number" name="newbalanceOrig" placeholder="New Balance Sender" required>
+
+<input type="number" name="oldbalanceDest" placeholder="Old Balance Receiver" required>
+
+<input type="number" name="newbalanceDest" placeholder="New Balance Receiver" required>
+
+</div>
+
+<button type="submit">Detect Fraud Transaction</button>
+
+</form>
+
+</div>
+
+
+<!-- Result -->
+{% if result %}
+
+<div class="result {% if 'Fraud' in result %}fraud{% else %}legitimate{% endif %}">
+
+<h3>{{ result }}</h3>
+
+<ul>
+<li>Step: {{ form_data.step }}</li>
+<li>Type: {{ form_data.type }}</li>
+<li>Amount: {{ form_data.amount }}</li>
+<li>Old Balance Sender: {{ form_data.oldbalanceOrg }}</li>
+<li>New Balance Sender: {{ form_data.newbalanceOrig }}</li>
+<li>Old Balance Receiver: {{ form_data.oldbalanceDest }}</li>
+<li>New Balance Receiver: {{ form_data.newbalanceDest }}</li>
+</ul>
+
+</div>
+
+{% endif %}
+
+</div>
+
+</div>
+
+</body>
+</html>
